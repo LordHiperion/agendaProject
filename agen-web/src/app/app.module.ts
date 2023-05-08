@@ -7,12 +7,14 @@ import { AgendaService } from 'src/core/service/agenda.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AgendaFormComponent } from './agenda-form/agenda-form.component';
 import { AgendaListComponent } from './agenda-list/agenda-list.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
       AgendaFormComponent,
-      AgendaListComponent
+      AgendaListComponent,
+      LoginComponent
    ],
   imports: [
     BrowserModule,
