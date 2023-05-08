@@ -4,8 +4,8 @@ import { AgendaListComponent } from './agenda-list/agenda-list.component';
 import { AgendaFormComponent } from './agenda-form/agenda-form.component';
 
 const routes: Routes = [
-  { path:'', component: AgendaListComponent },
-  { path: 'agenda-form', component: AgendaFormComponent }
+  { path: 'agenda-form', component: AgendaFormComponent },
+  { path: 'agenda-list', component: AgendaListComponent }
 ];
 
 @NgModule({
