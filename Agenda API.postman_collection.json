@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "29b4594f-a9c8-4178-84d4-868ea3215ce7",
+		"name": "Agenda API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15384406"
+	},
+	"item": [
+		{
+			"name": "Agenda Controller",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endereco}}/agenda_controller.php",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"agenda_controller.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endereco}}/agenda_controller.php?id_agenda=1",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"agenda_controller.php"
+							],
+							"query": [
+								{
+									"key": "id_agenda",
+									"value": "1",
+									"description": "Id da agenda"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"nome\": \"Weslley teste\",\n    // \"sobreNome\": \"Coutinho Mendes\",\n    // \"email\": \"weslley@email.com\",\n    \"dataAniversario\": \"1995-07-12\",\n    \"observacao\": \"Observação sobre o contato\",\n    // \"usuario_id\": \"111014720031877874936\",\n    \"telefones\": [\n        {\n            \"id\": 1,\n            \"numero\": \"21988887777\",\n            \"agenda_id\": 1\n        },\n        {\n            \"id\": 2,\n            \"numero\": \"21912341234\",\n            \"agenda_id\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/agenda_controller.php",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"agenda_controller.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"nome\": \"Weslley teste update\",\n    // \"sobreNome\": \"Coutinho Mendes\",\n    // \"email\": \"weslley@email.com\",\n    \"dataAniversario\": \"1995-07-12\",\n    \"observacao\": \"Observação sobre o contato\",\n    // \"usuario_id\": \"111014720031877874936\",\n    \"telefones\": [\n        {\n            \"id\": 1,\n            \"numero\": \"21988887777\",\n            \"agenda_id\": 1\n        },\n        {\n            \"id\": 2,\n            \"numero\": \"21912341234\",\n            \"agenda_id\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/agenda_controller.php?id=7",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"agenda_controller.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"nome\": \"Weslley teste update\",\n    // \"sobreNome\": \"Coutinho Mendes\",\n    // \"email\": \"weslley@email.com\",\n    \"dataAniversario\": \"1995-07-12\",\n    \"observacao\": \"Observação sobre o contato\",\n    // \"usuario_id\": \"111014720031877874936\",\n    \"telefones\": [\n        {\n            \"id\": 1,\n            \"numero\": \"21988887777\",\n            \"agenda_id\": 1\n        },\n        {\n            \"id\": 2,\n            \"numero\": \"21912341234\",\n            \"agenda_id\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/agenda_controller.php?id=7",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"agenda_controller.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7",
+									"description": "id agenda para deletar"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Autenticação",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"nome\": \"Weslley teste\",\n    // \"sobreNome\": \"Coutinho Mendes\",\n    // \"email\": \"weslley@email.com\",\n    \"dataAniversario\": \"1995-07-12\",\n    \"observacao\": \"Observação sobre o contato\",\n    // \"usuario_id\": \"111014720031877874936\",\n    \"telefones\": [\n        {\n            \"id\": 1,\n            \"numero\": \"21988887777\",\n            \"agenda_id\": 1\n        },\n        {\n            \"id\": 2,\n            \"numero\": \"21912341234\",\n            \"agenda_id\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/login.php",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"login.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"nome\": \"Weslley teste\",\n    // \"sobreNome\": \"Coutinho Mendes\",\n    // \"email\": \"weslley@email.com\",\n    \"dataAniversario\": \"1995-07-12\",\n    \"observacao\": \"Observação sobre o contato\",\n    // \"usuario_id\": \"111014720031877874936\",\n    \"telefones\": [\n        {\n            \"id\": 1,\n            \"numero\": \"21988887777\",\n            \"agenda_id\": 1\n        },\n        {\n            \"id\": 2,\n            \"numero\": \"21912341234\",\n            \"agenda_id\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/logout.php",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"logout.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "endereco",
+			"value": "https://whertz.com.br/agenda_projeto",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "token.da.google",
+			"type": "string"
+		}
+	]
+}
