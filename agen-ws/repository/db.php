@@ -5,7 +5,7 @@ if ($_SERVER['REMOTE_ADDR'] === '127.0.0.1' || $_SERVER['REMOTE_ADDR'] === '::1'
     include_once 'connection_config_local.php';
 } else {
     // o script está sendo executado remotamente
-    include_once 'config-remoto.php';
+    include_once 'connection_config_remoto.php';
 }
 
 class DatabaseConnection {
@@ -36,6 +36,22 @@ class DatabaseConnection {
         // var_dump($this);
         $stmt = $this->conn->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function beginTransaction() {
+        $this->conn->beginTransaction();
+    }
+
+    public function commit() {
+        $this->conn->commit();
+    }
+
+    public function rollBack() {
+        $this->conn->rollBack();
+    }
+
+    public function getConn() {
+        return $this->conn;
     }
     
     public function __destruct() {
