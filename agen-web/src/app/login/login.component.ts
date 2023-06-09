@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CredentialResponse } from 'google-one-tap';
 import { AgendaService } from 'src/core/service/agenda.service';
+import { LoginService } from 'src/core/service/login.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -14,7 +16,9 @@ export class LoginComponent implements OnInit {
 
   clientId = environment.clientIdGoogle;
 
-  constructor() { }
+  constructor(
+    private loginService : LoginService
+  ) { }
 
   ngOnInit(): void {
 
@@ -38,26 +42,27 @@ export class LoginComponent implements OnInit {
       // @ts-ignore
       google.accounts.id.prompt((notification: PromptMomentNotification) => {
         console.log(notification);
-//        debugger;
+
       });
     };
   }
 
   async handleCredentialResponse(response: CredentialResponse) {
     console.log(response);
-    debugger;
-    // await this.service.LoginWithGoogle(response.credential).subscribe(
-    //   (x:any) => {
-    //     this._ngZone.run(() => {
-    //       this.router.navigate(['/logout']);
-    //     })},
-    //   (error:any) => {
-    //       console.log(error);
-    //     }
-    //   );
+
+    this.loginService.login(response.credential).subscribe(
+      {
+        next: (res) => {
+          debugger;
+        }
+      }
+    );
+
+
+
   }
 }
 
 
 
-}
+

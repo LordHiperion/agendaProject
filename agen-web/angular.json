@@ -111,5 +111,7 @@
       }
     }
   },
-  "defaultProject": "agen-web"
+  "cli": {
+    "analytics": false
+  }
 }
