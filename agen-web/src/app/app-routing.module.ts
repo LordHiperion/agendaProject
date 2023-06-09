@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'login', redirectTo: 'login'},
+  { path: 'logout', redirectTo: 'logout'},
   { path: 'agenda-form', component: AgendaFormComponent },
   { path: 'agenda-list', component: AgendaListComponent }
 ];

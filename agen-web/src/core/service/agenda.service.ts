@@ -11,7 +11,7 @@ export class AgendaService {
 constructor(private http: HttpClient) { }
 
 getAll(): Observable<any>{
-  return this.http.get ('https://whertz.com.br/agenda_projeto/')
+  return this.http.get ('https://whertz.com.br/agenda_projeto/agenda_controller.php')
 }
 
 }
