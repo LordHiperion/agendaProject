@@ -1,4 +1,5 @@
 <?php
+require_once 'shared/headers_set.php';
 require_once 'google-api-php-client--PHP5.6/vendor/autoload.php';
 require_once 'repository/usuario-repository.php';
 require_once 'repository/agenda-repository.php';
@@ -7,9 +8,6 @@ require_once 'model/Usuario.php';
 require_once 'model/Agenda.php';
 include_once 'model/Telefone.php';
 
-
-header('Content-Type: application/json; charset=utf-8');
-header("Access-Control-Allow-Origin: *");
 // TODO: deixar esse método num outro arquivo que compartilha para todos os outros
 function json_encode_unicode($data) {
     return json_encode($data, JSON_UNESCAPED_UNICODE);
