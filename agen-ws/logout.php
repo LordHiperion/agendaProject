@@ -1,12 +1,9 @@
 <?php
+    require_once 'shared/headers_set.php';
     require_once 'google-api-php-client--PHP5.6/vendor/autoload.php';
     require_once 'repository/token_invalido-repository.php';
     require_once 'model/Usuario.php';
     require_once 'auth/auth.php';
-    
-
-    header('Content-Type: application/json; charset=utf-8');
-    header("Access-Control-Allow-Origin: *");
 
     function json_encode_unicode($data) {
         return json_encode($data, JSON_UNESCAPED_UNICODE);

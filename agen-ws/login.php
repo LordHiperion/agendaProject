@@ -1,4 +1,5 @@
 <?php
+    require_once 'shared/headers_set.php';
     require_once 'google-api-php-client--PHP5.6/vendor/autoload.php';
     require_once 'repository/usuario-repository.php';
     require_once 'repository/token_invalido-repository.php';
@@ -6,10 +7,6 @@
     // Sempre que fizer um login ele deleta os tokens antigos
     $token_invalido_repository = new TokenInvalidoRepository();
     $token_invalido_repository->deleteTokensExpirados();
-    
-
-    header('Content-Type: application/json; charset=utf-8');
-    header("Access-Control-Allow-Origin: *");
 
     function json_encode_unicode($data) {
         return json_encode($data, JSON_UNESCAPED_UNICODE);
