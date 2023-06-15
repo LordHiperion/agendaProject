@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -11,7 +11,9 @@ export class AgendaService {
 constructor(private http: HttpClient) { }
 
 getAll(): Observable<any>{
-  return this.http.get ('https://whertz.com.br/agenda_projeto/agenda_controller.php')
+  const token = sessionStorage.getItem('token');
+  const headers= new HttpHeaders({"Authorization": `Bearer ${token}`});
+  return this.http.get ('https://whertz.com.br/agenda_projeto/agenda_controller.php', {headers : headers})
 }
 
 }

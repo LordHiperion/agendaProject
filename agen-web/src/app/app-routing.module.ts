@@ -5,6 +5,7 @@ import { AgendaFormComponent } from './agenda-form/agenda-form.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: "login", pathMatch: 'full'},
   { path: 'login', component: LoginComponent},
   { path: 'logout', redirectTo: 'logout'},
   { path: 'agenda-form', component: AgendaFormComponent },

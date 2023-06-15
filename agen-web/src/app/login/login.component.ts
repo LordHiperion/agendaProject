@@ -3,6 +3,7 @@ import { Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CredentialResponse } from 'google-one-tap';
 import { AgendaService } from 'src/core/service/agenda.service';
+import { AuthService } from 'src/core/service/auth.service';
 import { LoginService } from 'src/core/service/login.service';
 import { environment } from 'src/environments/environment';
 
@@ -17,7 +18,10 @@ export class LoginComponent implements OnInit {
   clientId = environment.clientIdGoogle;
 
   constructor(
-    private loginService : LoginService
+    private loginService : LoginService,
+    private authService : AuthService,
+    private router: Router,
+
   ) { }
 
   ngOnInit(): void {
@@ -53,8 +57,11 @@ export class LoginComponent implements OnInit {
     this.loginService.login(response.credential).subscribe(
       {
         next: (res) => {
-          debugger;
+         this.authService.setToken(response.credential);
+
+         this.router.navigate(['/agenda-list']);
         }
+
       }
     );
 

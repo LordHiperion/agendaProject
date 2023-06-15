@@ -12,7 +12,7 @@ constructor(
 ) { }
 login (token:string) {
   const headers= new HttpHeaders({"Authorization": `Bearer ${token}`});
-    debugger
+
   return this.http.post(`${this.uri}/login.php`,{},{headers : headers});
 }
 }
