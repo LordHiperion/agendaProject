@@ -16,4 +16,9 @@ getAll(): Observable<any>{
   return this.http.get ('https://whertz.com.br/agenda_projeto/agenda_controller.php', {headers : headers})
 }
 
+cadastrar(agenda: any) {
+  return this.http.post('https://whertz.com.br/agenda_projeto/agenda_controller.php', agenda);
+
+}
+
 }

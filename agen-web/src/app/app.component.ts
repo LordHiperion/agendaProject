@@ -16,10 +16,8 @@ export class AppComponent implements OnInit{
     ){}
 
     ngOnInit(): void {}
-//metodo criado para fazer a navegação do botao para a agenda-list.
-    irParaAgendaList() {
-      this.router.navigate(['agenda-list']);
+
 
     }
-}
+
 
