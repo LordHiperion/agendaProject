@@ -9,9 +9,10 @@ import { AgendaFormComponent } from './agenda-form/agenda-form.component';
 import { AgendaListComponent } from './agenda-list/agenda-list.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [		
+  declarations: [
     AppComponent,
       AgendaFormComponent,
       AgendaListComponent,
@@ -22,6 +23,7 @@ import { LogoutComponent } from './logout/logout.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
 
 
   ],

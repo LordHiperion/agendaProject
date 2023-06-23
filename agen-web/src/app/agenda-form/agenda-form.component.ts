@@ -40,5 +40,21 @@ export class AgendaFormComponent implements OnInit {
     this.router.navigate(['/agenda-list']);
     }
 
+  salvarContato(){
+
+    if (this.agendaForm.invalid){
+      return;
+    }
+    this.agendaService.cadastrar(this.agendaForm.value).subscribe({
+      next:(res) => {
+        this.voltarParaOListarContato();
+      },
+      error: (err) => {
+        console.error(err);
+      }
+
+    });
+  }
+
 
 }

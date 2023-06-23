@@ -17,7 +17,9 @@ getAll(): Observable<any>{
 }
 
 cadastrar(agenda: any) {
-  return this.http.post('https://whertz.com.br/agenda_projeto/agenda_controller.php', agenda);
+  const token = sessionStorage.getItem('token');
+  const headers = new HttpHeaders({"Authorization": `Bearer ${token}`});
+  return this.http.post('https://whertz.com.br/agenda_projeto/agenda_controller.php', agenda, {headers : headers});
 
 }
 
