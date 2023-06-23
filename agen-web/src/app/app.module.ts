@@ -10,6 +10,7 @@ import { AgendaListComponent } from './agenda-list/agenda-list.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InterceptorModule } from './interceptor/interceptor.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    InterceptorModule,
 
 
   ],
