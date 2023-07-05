@@ -52,7 +52,6 @@ export class LoginComponent implements OnInit {
   }
 
   async handleCredentialResponse(response: CredentialResponse) {
-    console.log(response);
 
     this.loginService.login(response.credential).subscribe(
       {

@@ -30,6 +30,8 @@ export class AgendaFormComponent implements OnInit {
       dataAniversario: new FormControl(null),
       observacao: new FormControl(null),
 
+      // TODO: Procurar na internet como adicionar e remover input dinamicamente no FormGroup.
+
     })
   }
 
