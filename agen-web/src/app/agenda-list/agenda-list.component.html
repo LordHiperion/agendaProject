@@ -2,7 +2,7 @@
 <!-- tabela utilizando bootstrap.
 
  -->
- <button class="btn btn-primary" (click)="irParaCadastroDePessoa()">Cadastrar pessoa</button>
+ <button class="btn btn-primary" (click)="irParaCadastroDeContato()">Cadastrar pessoa</button>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -16,6 +16,24 @@
       <td>{{item.nome}}</td>
       <td>{{item.sobreNome}}</td>
       <td>
+        <div class="dropdown">
+          <span class="material-symbols-outlined cursor-pointer"  data-bs-toggle="dropdown">menu</span>
+          <ul class="dropdown-menu">
+            <li>
+              <button class="dropdown-item d-flex gap-2" (click)="cadastrarContato(item.id)">
+                <span class="material-symbols-outlined menu-icon align-self-center">visibility</span>
+                <span class="align-self-center">Visualizar</span>
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item d-flex gap-2" (click)="editarContato(item.id)">
+                <span class="material-symbols-outlined menu-icon align-self-center">edit</span>
+                <span class="align-self-center">Editar</span>
+              </button>
+            </li>
+
+          </ul>
+        </div>
 
     </td>
     </tr>

@@ -11,6 +11,7 @@ export class AgendaListComponent{
 
   //criando atributo para exibir a lista
   exibirLista : any;
+  idContatoDelete?: number;
 
   constructor(
     private agendaService : AgendaService,
@@ -19,8 +20,6 @@ export class AgendaListComponent{
     private ref: ChangeDetectorRef,
 
   ) {
-
-
 
     this.carregarLista();
 
@@ -50,11 +49,35 @@ export class AgendaListComponent{
     })
   }
 
-irParaCadastroDePessoa() {
-
-
+irParaCadastroDeContato() {
   this.router.navigate(['/agenda-form']);
-
 }
+
+cadastrarContato(id: number){
+  this.router.navigate(['/agenda-form', id, 'visualizar']);
+}
+
+editarContato(id: number){
+  this.router.navigate(['/agenda-form', id]);
+}
+
+setIdContatoDelete(id: number){
+  this.idContatoDelete = id;
+}
+
+deletarContato(){
+  if (!this.idContatoDelete)
+  return;
+  this.agendaService.delete(this.idContatoDelete).subscribe({
+    next:(res) => {
+      this.idContatoDelete = undefined;
+      this.carregarLista();
+    },
+    error: (err) => {
+      console.error(err);
+    }
+  });
+}
+
 
 }
