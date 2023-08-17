@@ -15,11 +15,11 @@ getAll(): Observable<any>{
 }
 
 getOne(id: number): Observable<any>{
-  return this.http.get(`https://whertz.com.br/agenda_projeto/agenda_controller.php/${id}`);
+  return this.http.get(`https://whertz.com.br/agenda_projeto/agenda_controller.php/?id_agenda=${id}`);
 }
 
 delete(id: number){
-  return this.http.delete(`https://whertz.com.br/agenda_projeto/agenda_controller.php/${id}`);
+  return this.http.delete(`https://whertz.com.br/agenda_projeto/agenda_controller.php/?id=${id}`);
 }
 
 cadastrar(agenda: any) {
@@ -27,7 +27,7 @@ cadastrar(agenda: any) {
 }
 
 atualizar(id: number, agenda: any){
-  return this.http.put(`https://whertz.com.br/agenda_projeto/agenda_controller.php/${id}`, agenda);
+  return this.http.put(`https://whertz.com.br/agenda_projeto/agenda_controller.php`, agenda);
 }
 
 }

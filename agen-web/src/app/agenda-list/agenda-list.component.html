@@ -31,6 +31,12 @@
                 <span class="align-self-center">Editar</span>
               </button>
             </li>
+            <li>
+              <button class="dropdown-item d-flex gap-2" (click)="setIdContatoDelete(item.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <span class="material-symbols-outlined menu-icon align-self-center">cancel</span>
+                <span class="align-self-center">Deletar</span>
+              </button>
+            </li>
 
           </ul>
         </div>
@@ -40,3 +46,20 @@
 
   </tbody>
 </table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Deletar Pessoa</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Deseja deletar a pessoa?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="deletarContato()">Sim</button>
+      </div>
+    </div>
+  </div>

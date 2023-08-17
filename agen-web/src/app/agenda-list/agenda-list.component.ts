@@ -58,7 +58,7 @@ cadastrarContato(id: number){
 }
 
 editarContato(id: number){
-  this.router.navigate(['/agenda-form', id]);
+  this.router.navigate(['/agenda-form', id, 'editar']);
 }
 
 setIdContatoDelete(id: number){

@@ -9,7 +9,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'logout', redirectTo: 'logout'},
   { path: 'agenda-form', component: AgendaFormComponent },
+  { path: 'agenda-form/:id', component: AgendaFormComponent },
+  { path: 'agenda-form/:id/:tipo', component: AgendaFormComponent },
   { path: 'agenda-list', component: AgendaListComponent }
+
 ];
 
 @NgModule({
