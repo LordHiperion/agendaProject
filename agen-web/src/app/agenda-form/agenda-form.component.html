@@ -1,5 +1,5 @@
 <h2>{{title}}</h2>
-<!-- TODO:transformar o titulo em uma variavel para fazer o controle entre cadastro visualização e edição -->
+
 <button class='btn btn-primary' (click)="voltarParaOListarContato()">Voltar</button>
 <hr>
 <form (submit)="salvarContato()" class="mt-3" [formGroup]="agendaForm">
@@ -7,14 +7,17 @@
     <input formControlName="nome" type="text" class="form-control" id="floatingInputNome" placeholder=" ">
     <label for="floatingInputNome">Nome</label>
   </div>
+
   <div class="form-floating mb-3">
     <input formControlName="sobreNome" type="text" class="form-control" id="floatingInputSobreNome" placeholder=" ">
     <label for="floatingInputSobreNome">Sobrenome</label>
   </div>
+
   <div class="form-floating mb-3">
     <input formControlName="email" type="text" class="form-control" id="floatingInputEmail" placeholder=" ">
     <label for="floatingInputEmail">E-Mail</label>
   </div>
+
   <div class="row mb-3">
     <div class="col-4">
       <div class="form-floating">
@@ -31,9 +34,30 @@
         <label for="floatingTextareaDisabled">Comentários</label>
       </div>
     </div>
-    <div class="mt-3">
-      <button *ngIf="tipo !=='visualizar'" type="submit" class="btn btn-outline-primary">Enviar</button>
+
+  </div>
+<div formArrayName="telefones">
+  <div class="row mb-3" *ngFor="let Telefone of telefones.controls; let i = index" [formGroupName]="i">
+    <div class="col-3 d-flex">
+      <div class="input-group">
+        <div class="form-floating">
+          <input mask="(00) 00000-0000||(00) 0000-0000" formControlName="numero" type="text" class="form-control" id="numero" placeholder=" ">
+          <label for="numero">Telefone</label>
+        </div>
+        <button type="button" class="btn btn-outline-danger" (click)="excluirNumero(i)">X</button>
+      </div>
     </div>
+  </div>
+</div>
+
+  <div class="row mb-3">
+    <div class="col-3">
+      <button (click)="adicionarTelefone()">Add Telefone</button>
+    </div>
+  </div>
+
+  <div class="mt-3">
+    <button *ngIf="tipo !=='visualizar'" type="submit" class="btn btn-outline-primary">Enviar</button>
   </div>
 
 

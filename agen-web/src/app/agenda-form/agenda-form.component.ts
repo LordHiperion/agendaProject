@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AgendaService } from 'src/core/service/agenda.service';
+import { IFormArray, IFormBuilder } from '@rxweb/types';
 
+
+export interface ListaTelefoneForm{
+  numero: number | any;
+}
 @Component({
   selector: 'app-agenda-form',
   templateUrl: './agenda-form.component.html',
@@ -13,7 +18,6 @@ export class AgendaFormComponent implements OnInit {
   agendaForm: FormGroup;
   idContato: number = 0;
   tipo: any;
-
   title = 'Cadastrar Agenda'
 
 
@@ -21,22 +25,39 @@ export class AgendaFormComponent implements OnInit {
     private agendaService : AgendaService,
     private router : Router,
     private route: ActivatedRoute,
+    private formbuilder: FormBuilder,
   ) {
     // formgroup é um gerenciador de formulário completo do angular.
-    this.agendaForm = new FormGroup({
+    //this.agendaForm = new FormGroup({
 
     //formcontrol vem dentro do formgroup e é utilizado para setar a estrutura do formgroup.
 
 
-      nome: new FormControl(null, [Validators.required]),
-      sobreNome: new FormControl(null),
-      email: new FormControl(null),
-      dataAniversario: new FormControl(null),
-      observacao: new FormControl(null),
+      // nome: new FormControl(null, [Validators.required]),
+      // sobreNome: new FormControl(null),
+      // email: new FormControl(null),
+      // dataAniversario: new FormControl(null),
+      // observacao: new FormControl(null),
+      // telefones:(this.formbuilder as FormBuilder).array<ListaTelefoneForm>([]),
+      // telefones: IFormArray< ListaTelefoneForm >
 
-      // TODO: Procurar na internet como adicionar e remover input dinamicamente no FormGroup.
+
+      // TODO: Procurar na internet como adicionar e remover input dinamicamente no FormGroup. Para o telefone
+
+    //})
+    this.agendaForm = (formbuilder as IFormBuilder).group<any>({
+
+      nome:[null,Validators.required],
+      sobreNome: [null],
+      email: [null],
+      dataAniversario: [null],
+      observacao: [null],
+      telefones:(this.formbuilder as IFormBuilder).array<ListaTelefoneForm>([]),
 
     })
+
+
+
 
 
 
@@ -110,6 +131,20 @@ export class AgendaFormComponent implements OnInit {
     }
   }
 
+ get telefones(){
+  return this.agendaForm.controls["telefones"] as unknown as FormArray;
+
+ }
+
+  adicionarTelefone(){
+  this.telefones.push((this.formbuilder as FormBuilder).group<ListaTelefoneForm>({
+    numero: [null],
+  }))
+  }
+
+  excluirNumero(index:number):void{
+     this.telefones.removeAt(index);
+  }
 
 
 
