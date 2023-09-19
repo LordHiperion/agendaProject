@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CredentialResponse } from 'google-one-tap';
@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent  {
 
 
   clientId = environment.clientIdGoogle;
@@ -21,10 +21,12 @@ export class LoginComponent implements OnInit {
     private loginService : LoginService,
     private authService : AuthService,
     private router: Router,
+    private ngZone: NgZone,
 
-  ) {this.ngOnInit() }
+  ) {}
 
   ngOnInit(): void {
+    console.log("no oninit do app componet")
 
     // @ts-ignore
     window.onGoogleLibraryLoad = () => {
@@ -58,14 +60,23 @@ export class LoginComponent implements OnInit {
         next: (res) => {
          this.authService.setToken(response.credential);
 
-         this.router.navigate(['/agenda-list']);
+
+         this.ngZone.run(() => {
+           this.navegarParaAgenda();
+
+      });
+
         }
+
 
       }
     );
 
 
 
+  }
+  navegarParaAgenda(){
+    this.router.navigate(['/agenda-list']);
   }
 }
 

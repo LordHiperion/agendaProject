@@ -9,9 +9,11 @@ import { AgendaFormComponent } from './agenda-form/agenda-form.component';
 import { AgendaListComponent } from './agenda-list/agenda-list.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InterceptorModule } from './interceptor/interceptor.module';
 import { NgxMaskModule } from 'ngx-mask';
+import { ToastService } from 'src/core/service/toast.service';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -19,20 +21,28 @@ import { NgxMaskModule } from 'ngx-mask';
       AgendaFormComponent,
       AgendaListComponent,
       LoginComponent,
-      LogoutComponent
+      LogoutComponent,
+
+
    ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    InterceptorModule,
+    NgxMaskModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    InterceptorModule,
-    NgxMaskModule.forRoot()
+    ToastrModule.forRoot(),
+
+
+
 
 
   ],
   providers: [
-    AgendaService
+    AgendaService,
+    ToastService,
   ],
   bootstrap: [AppComponent]
 })

@@ -59,23 +59,23 @@ export class AgendaFormComponent implements OnInit {
 
 
 
-
-
     this.idContato = (+this.route.snapshot.params['id']) ? +this.route.snapshot.params['id'] : 0;
     this.tipo = this.route.snapshot.params['tipo'];
 
-    if (this.tipo == 'visualizar'){
+    const isVisualizar = this.tipo == 'visualizar';
+
+    if (isVisualizar){
       this.agendaForm.disable();
     }
     if (this.idContato >= 1) {
-      console.log("numero1")
+
       this.pegarContato(this.idContato);
 
     }
-    if (this.tipo == 'visualizar'){
-    this.title = 'Visualizar Agenda'
+    if (isVisualizar){
+      this.title = 'Visualizar Agenda'
     }else if (this.tipo == 'editar')
-    this.title = 'Editar Agenda'
+      this.title = 'Editar Agenda'
   }
 
   ngOnInit() {}
@@ -89,6 +89,11 @@ export class AgendaFormComponent implements OnInit {
       this.agendaService.getOne(id).subscribe({
         next: ( res ) => {
           this.agendaForm.patchValue(res);
+          for (const telefone of res.telefones) {
+           // for of é um for inteligente no qual ele passa pela lista e pega objeto que está sendo solicitado.
+           //ele faz esse processo até terminar a lista.
+            this.adicionarTelefone(telefone.numero)
+          }
         }, error: (err) => {
 
         }
@@ -136,9 +141,12 @@ export class AgendaFormComponent implements OnInit {
 
  }
 
-  adicionarTelefone(){
+  adicionarTelefone(numero? : number){
   this.telefones.push((this.formbuilder as FormBuilder).group<ListaTelefoneForm>({
-    numero: [null],
+    numero: [{
+      value:numero || null,
+      disabled: 'visualizar' == this.tipo,
+    }]
   }))
   }
 

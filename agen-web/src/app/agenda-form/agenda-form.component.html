@@ -2,7 +2,7 @@
 
 <button class='btn btn-primary' (click)="voltarParaOListarContato()">Voltar</button>
 <hr>
-<form (submit)="salvarContato()" class="mt-3" [formGroup]="agendaForm">
+<form class="mt-3" [formGroup]="agendaForm">
   <div class='form-floating mb-3'>
     <input formControlName="nome" type="text" class="form-control" id="floatingInputNome" placeholder=" ">
     <label for="floatingInputNome">Nome</label>
@@ -36,28 +36,27 @@
     </div>
 
   </div>
-<div formArrayName="telefones">
-  <div class="row mb-3" *ngFor="let Telefone of telefones.controls; let i = index" [formGroupName]="i">
-    <div class="col-3 d-flex">
+<div  formArrayName="telefones">
+  <div  class="row mb-3" *ngFor="let Telefone of telefones.controls; let i = index" [formGroupName]="i">
+    <div  class="col-3 d-flex">
       <div class="input-group">
         <div class="form-floating">
           <input mask="(00) 00000-0000||(00) 0000-0000" formControlName="numero" type="text" class="form-control" id="numero" placeholder=" ">
-          <label for="numero">Telefone</label>
+          <label  for="numero">Telefone</label>
         </div>
-        <button type="button" class="btn btn-outline-danger" (click)="excluirNumero(i)">X</button>
+        <button *ngIf="tipo !=='visualizar'" type="button" class="btn btn-outline-danger" (click)="excluirNumero(i)">X</button>
       </div>
     </div>
   </div>
 </div>
 
-  <div class="row mb-3">
+  <div *ngIf="tipo !=='visualizar'" class="row mb-3">
     <div class="col-3">
       <button (click)="adicionarTelefone()">Add Telefone</button>
     </div>
   </div>
-
-  <div class="mt-3">
-    <button *ngIf="tipo !=='visualizar'" type="submit" class="btn btn-outline-primary">Enviar</button>
+  <div *ngIf="tipo !=='visualizar'" class="mt-3">
+    <button (click)="salvarContato()" type="button" class="btn btn-outline-primary">Enviar</button>
   </div>
 
 
