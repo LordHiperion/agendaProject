@@ -16,7 +16,7 @@ token tem que vir no `HEADER` no `Authorization` com o formato do OAuth 2.0, sen
 | Agenda GetAll      | `GET`  | `SIM`        | {endereco}/agenda_controller.php                |
 | Agenda GetOne      | `GET`  | `SIM`        | {endereco}/agenda_controller.php?id_agenda={id} |
 | Agenda Cadastro    | `POST` | `SIM`        | {endereco}/agenda_controller.php                |
-| Agenda Atualização | `PUT`  | `SIM`        | {endereco}/agenda_controller.php                |
+| Agenda Atualização | `PUT`  | `SIM`        | {endereco}/agenda_controller.php?id={id}        |
 
 <br/>
 
