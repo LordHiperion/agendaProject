@@ -27,7 +27,7 @@ cadastrar(agenda: any) {
 }
 
 atualizar(id: number, agenda: any){
-  return this.http.put(`https://whertz.com.br/agenda_projeto/agenda_controller.php`, agenda);
+  return this.http.put(`https://whertz.com.br/agenda_projeto/agenda_controller.php?id=${id}`, agenda);
 }
 
 }

@@ -3,6 +3,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, UntypedFormGroup, Valid
 import { Router, ActivatedRoute } from '@angular/router';
 import { AgendaService } from 'src/core/service/agenda.service';
 import { IFormArray, IFormBuilder } from '@rxweb/types';
+import { ToastrService } from 'ngx-toastr';
 
 
 export interface ListaTelefoneForm{
@@ -26,6 +27,7 @@ export class AgendaFormComponent implements OnInit {
     private router : Router,
     private route: ActivatedRoute,
     private formbuilder: FormBuilder,
+    private toastr: ToastrService,
   ) {
     // formgroup é um gerenciador de formulário completo do angular.
     //this.agendaForm = new FormGroup({
@@ -95,6 +97,7 @@ export class AgendaFormComponent implements OnInit {
             this.adicionarTelefone(telefone.numero)
           }
         }, error: (err) => {
+          this.toastr.error('Pessoa não encontrada');
 
         }
       })
@@ -116,19 +119,22 @@ export class AgendaFormComponent implements OnInit {
     if(this.idContato > 0) {
       this.agendaService.atualizar(this.idContato, this.agendaForm.value).subscribe({
         next: (res) => {
-          console.log ('pessoa atualizada com sucesso');
+          this.toastr.success('pessoa atualizada com sucesso');
           this.voltarParaOListarContato();
         }, error: (err) => {
           console.error(err);
+          this.toastr.error('Erro ao Atualizar');
         }
       })
     }else{
 
       this.agendaService.cadastrar(this.agendaForm.value).subscribe({
         next:(res) => {
+          this.toastr.success('Pessoa cadastrada com sucesso');
           this.voltarParaOListarContato();
         },
         error: (err) => {
+          this.toastr.error('Erro ao Cadastrar');
           console.error(err);
         }
 
