@@ -26,7 +26,7 @@ export class LoginComponent  {
   ) {}
 
   ngOnInit(): void {
-    console.log("no oninit do app componet")
+
 
     // @ts-ignore
     window.onGoogleLibraryLoad = () => {
