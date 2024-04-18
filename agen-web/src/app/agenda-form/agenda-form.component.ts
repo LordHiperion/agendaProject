@@ -44,7 +44,7 @@ export class AgendaFormComponent implements OnInit {
       // telefones: IFormArray< ListaTelefoneForm >
 
 
-      // TODO: Procurar na internet como adicionar e remover input dinamicamente no FormGroup. Para o telefone
+
 
     //})
     this.agendaForm = (formbuilder as IFormBuilder).group<any>({
