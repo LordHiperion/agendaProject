@@ -60,7 +60,6 @@ export class LoginComponent  {
         next: (res) => {
          this.authService.setToken(response.credential);
 
-
          this.ngZone.run(() => {
            this.navegarParaAgenda();
 
@@ -68,11 +67,8 @@ export class LoginComponent  {
 
         }
 
-
       }
     );
-
-
 
   }
   navegarParaAgenda(){
