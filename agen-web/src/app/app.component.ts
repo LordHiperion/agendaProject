@@ -15,6 +15,9 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
 
   clientId = environment.clientIdGoogle;
 

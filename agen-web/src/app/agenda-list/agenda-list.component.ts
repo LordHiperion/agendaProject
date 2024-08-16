@@ -13,6 +13,7 @@ export class AgendaListComponent{
   exibirLista : any;
   idContatoDelete?: number;
 
+
   constructor(
     private agendaService : AgendaService,
     private router : Router,
@@ -78,6 +79,15 @@ deletarContato(){
     }
   });
 }
+// oNumeroEPar(numero: number){
+//   if (numero%2 == 0) {
+//     console.log("o numero é par.");
+//     return "o numero é par.";
+//   } else {
+//     console.log("o numero não é par.");
+//     return "o numero @ não é par.";
+//   }
 
+// }
 
 }
