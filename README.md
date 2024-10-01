@@ -1,6 +1,7 @@
 # agendaProject
 ## FRONT-END
-Front-End utilizando Angular versionamento 14.
+Front-End utilizando Angular versionamento 14 com Bootstrap.
+
 
 Sistema de Login utilzamos o Google Autentication para poder ter um controle melhor do gerenciamento de credenciais.
 
